@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Success & Failure Page</title>
+    <style>
+      .page {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+      .success {
+        color: green;
+      }
+      .failure {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to My App</h1>
+
+    <!-- Buttons to simulate actions -->
+    <button onclick="showPage('success')">Show Success</button>
+    <button onclick="showPage('failure')">Show Failure</button>
+
+    <!-- Page sections -->
+    <div id="successPage" class="page success">
+      <h2>Success!</h2>
+      <p>Your action was successful.</p>
+    </div>
+
+    <div id="failurePage" class="page failure">
+      <h2>Failure</h2>
+      <p>Oops! Something went wrong.</p>
+    </div>
+
+    <script>
+      function showPage(page) {
+        // Hide all pages
+        document.getElementById("successPage").classList.remove("active");
+        document.getElementById("failurePage").classList.remove("active");
+
+        // Show selected page
+        if (page === "success") {
+          document.getElementById("successPage").classList.add("active");
+        } else if (page === "failure") {
+          document.getElementById("failurePage").classList.add("active");
+        }
+      }
+    </script>
+  </body>
+</html>
