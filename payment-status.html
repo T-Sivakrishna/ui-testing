@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment Status</title>
+    <style>
+      pre {
+        background-color: #f4f4f4;
+        padding: 15px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h2>💳 Payment Status Details</h2> -->
+    <div id="status-container"></div>
+    <button onclick="window.location.href='index.html'">Back to Home</button>
+
+    <script>
+      function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        const result = {};
+        params.forEach((value, key) => {
+          result[key] = value;
+        });
+        return result;
+      }
+
+      const data = getQueryParams();
+      const container = document.getElementById("status-container");
+      container.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+    </script>
+  </body>
+</html>
